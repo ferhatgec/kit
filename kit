@@ -1,0 +1,43 @@
+#!/usr/bin/env fla
+
+/> MIT License
+#
+# Copyright (c) 2020 Ferhat Geçdoğan All Rights Reserved.
+# Distributed under the terms of the MIT License.
+# 
+</
+
+main() -> main {
+	var(string) -> give me a file, yummy. -> kit_filename <-
+	var(string) -> give me some food!  -> kit_filedata <-
+	
+	print(string) -> "File: "
+	
+	@input -> kit_filename <
+
+	@readfile -> kit_filedata -> var(kit_filename) <
+
+	var(string) -> (kitty_top) {  
+                                  ________________
+                                 /  **             
+      *****                     <    {kit_filename}   
+     *******                     \________________   
+    ***\***/*            /\_/\   /
+     \\||//             ( o.o ) /
+       ||                > ^ < /
+    ---||----------------|   |------------------------------------
+} -> kitty_top <-
+	
+	
+	
+	var(string) -> (kitty_bottom) {
+    ----------------------|~|----------------------------------
+         /\               |~|     /\
+         \/               \~/     \/       /\
+                                           \/	
+} -> kitty_bottom <-
+	
+	@escape_seq -> kitty_top <
+	
+	print(string) -> "{kitty_top}\n{kit_filedata}\n{kitty_bottom}\n"
+} main;
