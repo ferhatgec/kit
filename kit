@@ -11,6 +11,15 @@ main() -> main {
 	var(string) -> give me a file, yummy. -> kit_filename <-
 	var(string) -> give me some food!  -> kit_filedata <-
 	
+	/> colors </
+	var(string) -> \033[1;32m -> green <-
+	var(string) -> \033[1;33m -> yellow <-
+	var(string) -> \033[1;91m -> light_red <-
+	var(string) -> \033[1;93m -> light_yellow <-
+	var(string) -> \033[1;97m -> light_white <-
+	var(string) -> \033[1;96m -> light_cyan <-
+	var(string) -> \033[0m -> reset <-
+	
 	print(string) -> "File: "
 	
 	@input -> kit_filename <
@@ -18,26 +27,30 @@ main() -> main {
 	@readfile -> kit_filedata -> var(kit_filename) <
 
 	var(string) -> (kitty_top) {  
-                                  ________________
-                                 /  **             
-      *****                     <    {kit_filename}   
-     *******                     \________________   
-    ***\***/*            /\_/\   /
-     \\||//             ( o.o ) /
-       ||                > ^ < /
-    ---||----------------|   |------------------------------------
+                                  {light_white}________________
+                                 {light_white}/  **             
+      {green}*****                     <   {light_yellow}{kit_filename}   
+     {green}*******{light_white}                     \________________   
+    {green}*********{reset}            {light_yellow}/\_/\   {light_white}/
+     {yellow}\\||//{reset}             {light_yellow}( o.o ) {light_white}/
+       {yellow}||{reset}                {light_yellow}> ^ < {light_white}/
+    ---{yellow}||{light_white}----------------{light_yellow}|   |{light_white}------------------------------------
 } -> kitty_top <-
 	
 	
 	
 	var(string) -> (kitty_bottom) {
-    ----------------------|~|----------------------------------
-         /\               |~|     /\
-         \/               \~/     \/       /\
-                                           \/	
+    ----------------------{yellow}|~|{light_white}-------------------------------------
+         {green}/\               {yellow}|~|     {light_cyan}/\
+         {light_red}\/               {yellow}\~/     {light_yellow}\/       {light_red}/\
+                                           {light_white}\/	
 } -> kitty_bottom <-
 	
 	@escape_seq -> kitty_top <
+	@escape_seq -> kitty_top <
+	
+	@escape_seq -> kitty_bottom <
+	@escape_seq -> kitty_bottom <
 	
 	print(string) -> "{kitty_top}\n{kit_filedata}\n{kitty_bottom}\n"
 } main;
