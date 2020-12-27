@@ -7,6 +7,14 @@
 # 
 </
 
+#check ->
+	if[var(kit_filename) == "kit"] -> {
+		 @equal -> kit_filedata ->                     Inception, meow ^ω^ <
+	} else -> {
+	
+	} <-
+#check <-
+
 main() -> main {
 	var(string) -> give me a file, yummy. -> kit_filename <-
 	var(string) -> give me some food!  -> kit_filedata <-
@@ -26,6 +34,7 @@ main() -> main {
 
 	@readfile -> kit_filedata -> var(kit_filename) <
 
+	statement[#check]
 	var(string) -> (kitty_top) {  
                                   {light_white}________________
                                  {light_white}/  **             
